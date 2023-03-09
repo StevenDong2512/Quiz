@@ -2,6 +2,8 @@ var question = document.querySelector(".question");
 // converting to Array
 var choices = Array.from(document.querySelectorAll(".choice-text"));
 
+var scoreText = document.querySelector("#score");
+
 var currentQuestion = {};
 var answers = true;
 var score = 0;
@@ -47,7 +49,7 @@ var questions = [
 ]
 
 
-var score = 50;
+var bonus = 50;
 var totalQuestions = 4;
 
 
@@ -97,6 +99,10 @@ choices.forEach(choice => {
             changeColor = "correct";
         }
 
+        if(changeColor == "correct"){
+            increaseScore(bonus)
+        }
+
         selectedChoice.parentElement.classList.add(changeColor);
 
         setTimeout(() => {
@@ -106,5 +112,10 @@ choices.forEach(choice => {
         getNextQuestion();
     });
 });
+
+increaseScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 
 startQuiz();

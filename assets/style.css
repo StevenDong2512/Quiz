@@ -10,10 +10,10 @@ body {
     background: var(--light);
 }
 
-.container{
+.container {
     width: 600px;
-    height:500px;
-    display: flex; 
+    height: 500px;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 100px auto;
@@ -22,7 +22,7 @@ body {
 
 .btn {
     font-size: 30px;
-    padding:10px;
+    padding: 10px;
     width: 40px;
     margin-bottom: 1rem;
     text-align: center;
@@ -34,7 +34,7 @@ body {
 
 .btn:hover {
     background: var(--green);
-    cursor:pointer;
+    cursor: pointer;
     transform: scale (1.5);
 }
 
@@ -47,46 +47,50 @@ body {
 
 
 /* Quiz header */
-.qz{
+.header {
     display: flex;
     justify-content: space-between;
+    padding: 15px;
 }
 
-.qz-prefix{
+.header-prefix {
     text-align: center;
     font-size: 15px;
 }
 
-.qz-main-text{
+.header-main-text {
     text-align: center;
+    margin: 10px;
 }
 
 
 
 /* Quiz main */
-.choice-container{
-    display:flex;
+.choice-container {
+    display: flex;
     margin-bottom: 5px;
     width: 400px;
     border-radius: 5px;
     background: var(--sage);
     color: var(--light);
 }
-.choice-container:hover{
-    cursor:pointer;
+
+.choice-container:hover {
+    cursor: pointer;
     background: var(--green);
 }
 
-.choice-prefix, .choice-text{
-    padding:10px
+.choice-prefix,
+.choice-text {
+    padding: 10px
 }
 
-.correct{
+.correct {
     background: #1a4c16;
     color: var(--light);
 }
 
-.incorrect{
+.incorrect {
     background: #4c1616;
     color: var(--light);
 }
