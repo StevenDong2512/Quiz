@@ -21,15 +21,14 @@ body {
 }
 
 .btn {
-    font-size: 30px;
-    padding: 10px;
-    width: 40px;
+    font-size: 25px;
+    padding: 5px;
     margin-bottom: 1rem;
     text-align: center;
     text-decoration: none;
     color: var(--light);
     background: var(--sage);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .btn:hover {
@@ -93,4 +92,27 @@ body {
 .incorrect {
     background: #4c1616;
     color: var(--light);
+}
+
+/* Record style */
+form{
+    width:500px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#result{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    border: var(--sage);
+    padding: 12px;
+    width: 120px;
+    margin: 10px;
+    border-radius: 5px;
+    color: var(--sage);
 }

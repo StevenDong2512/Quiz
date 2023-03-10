@@ -65,7 +65,8 @@ startQuiz = () => {
 getNextQuestion = () => {
     // when there is no question left direct to the final page 
     if (avilableQuestions.length === 0) {
-        return window, location.assign("final.html")
+        localStorage.setItem("latestScore",score);
+        return window, location.assign("record.html")
     }
     questionCounter++;
     var questionIndex = Math.floor(Math.random() * avilableQuestions.length);
