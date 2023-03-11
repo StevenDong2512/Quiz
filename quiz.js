@@ -1,14 +1,13 @@
 var question = document.querySelector(".question");
 // converting to Array
 var choices = Array.from(document.querySelectorAll(".choice-text"));
-
 var scoreText = document.querySelector("#score");
-
 var currentQuestion = {};
 var answers = true;
 var score = 0;
 var questionCounter = 0;
 var avilableQuestions = [];
+var timerEl = document.querySelector('#timer');
 
 var questions = [
     {
@@ -51,7 +50,21 @@ var questions = [
 
 var bonus = 50;
 var totalQuestions = 4;
+var timeLeft = 100;
+var timerId;
 
+function startTimer() {
+    timerId = setInterval(function() {
+        if (timeLeft <= 0) {
+            clearTimeout(timerId);
+            localStorage.setItem("latestScore", score);
+            return window.location.assign("record.html")
+        } else {
+            timerEl.textContent = timeLeft + "s";
+            timeLeft--;
+        }
+    }, 1000);
+}
 
 // Start Quiz with 0 scores and questions index
 startQuiz = () => {
@@ -59,6 +72,8 @@ startQuiz = () => {
     score = 0;
     avilableQuestions = [...questions];
     getNextQuestion();
+
+    
 };
 
 // Display question title
@@ -66,13 +81,12 @@ getNextQuestion = () => {
     // when there is no question left direct to the final page 
     if (avilableQuestions.length === 0) {
         localStorage.setItem("latestScore",score);
-        return window, location.assign("record.html")
+        return window,location.assign("record.html")
     }
     questionCounter++;
     var questionIndex = Math.floor(Math.random() * avilableQuestions.length);
     currentQuestion = avilableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
-
 
     // Display choices 
     var choices = Array.from(document.querySelectorAll(".choice-text"));
@@ -80,9 +94,15 @@ getNextQuestion = () => {
         var choiceIndex = choice.dataset["number"];
         choice.innerText = currentQuestion["choice" + choiceIndex];
     });
+
     // Change to a new question that hasn't been featured
     avilableQuestions.splice(questionIndex, 1);
     answers = true;
+
+    // Start the timer when the first question is displayed
+    if (questionCounter === 1) {
+        startTimer();
+    }
 };
 
 choices.forEach(choice => {
