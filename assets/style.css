@@ -95,24 +95,33 @@ body {
 }
 
 /* Record style */
-form{
-    width:500px;
-    display:flex;
+form {
+    width: 500px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 
-#result{
+#result {
     display: flex;
     justify-content: center;
 }
 
-input{
+input {
     border: var(--sage);
     padding: 12px;
     width: 120px;
     margin: 10px;
     border-radius: 5px;
     color: var(--sage);
+}
+
+#listScores {
+    list-style: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    color: var(--light);
+    display:flex;
+    flex-direction: column;
 }
